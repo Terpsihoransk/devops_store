@@ -1,0 +1,14 @@
+[Unit]
+Description=Sausage-store Backend
+
+[Service]
+User=student
+WorkingDirectory=/home/student
+Environment=REPORT_PATH=/home/student/reports
+Environment=LOG_PATH=/home/student/logs
+Restart=always
+ExecStart=/usr/bin/java -jar /home/student/sausage-store.jar --server.port=8080
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
